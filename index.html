@@ -122,87 +122,60 @@
 <body>
   <div class="container">
     <h2>Canteen Feedback Form</h2>
-    <form id="feedbackForm">
+    <form id="feedbackForm" action="/submit_feedback" method="POST">
       <label for="name">Your Name:</label>
       <input type="text" id="name" name="name" placeholder="Optional">
 
-      <!-- Experience Rating -->
       <label>Rate Your Overall Experience:</label>
       <div class="stars">
-        <input type="radio" id="exp5" name="experience" value="5"><label for="exp5">&#9733;</label>
+        <input type="radio" id="exp5" name="experience" value="5" required><label for="exp5">&#9733;</label>
         <input type="radio" id="exp4" name="experience" value="4"><label for="exp4">&#9733;</label>
         <input type="radio" id="exp3" name="experience" value="3"><label for="exp3">&#9733;</label>
         <input type="radio" id="exp2" name="experience" value="2"><label for="exp2">&#9733;</label>
         <input type="radio" id="exp1" name="experience" value="1"><label for="exp1">&#9733;</label>
       </div>
 
-      <!-- Staff Rating -->
       <label>Staff Performance:</label>
       <div class="stars">
-        <input type="radio" id="staff5" name="staff" value="5"><label for="staff5">&#9733;</label>
+        <input type="radio" id="staff5" name="staff" value="5" required><label for="staff5">&#9733;</label>
         <input type="radio" id="staff4" name="staff" value="4"><label for="staff4">&#9733;</label>
         <input type="radio" id="staff3" name="staff" value="3"><label for="staff3">&#9733;</label>
         <input type="radio" id="staff2" name="staff" value="2"><label for="staff2">&#9733;</label>
         <input type="radio" id="staff1" name="staff" value="1"><label for="staff1">&#9733;</label>
       </div>
 
-      <!-- Cleanliness Rating -->
       <label>Cleanliness:</label>
       <div class="stars">
-        <input type="radio" id="clean5" name="cleanliness" value="5"><label for="clean5">&#9733;</label>
+        <input type="radio" id="clean5" name="cleanliness" value="5" required><label for="clean5">&#9733;</label>
         <input type="radio" id="clean4" name="cleanliness" value="4"><label for="clean4">&#9733;</label>
         <input type="radio" id="clean3" name="cleanliness" value="3"><label for="clean3">&#9733;</label>
         <input type="radio" id="clean2" name="cleanliness" value="2"><label for="clean2">&#9733;</label>
         <input type="radio" id="clean1" name="cleanliness" value="1"><label for="clean1">&#9733;</label>
       </div>
 
-      <!-- Restaurant Rating -->
       <label>Restaurant Performance:</label>
       <div class="stars">
-        <input type="radio" id="rest5" name="restaurant" value="5"><label for="rest5">&#9733;</label>
+        <input type="radio" id="rest5" name="restaurant" value="5" required><label for="rest5">&#9733;</label>
         <input type="radio" id="rest4" name="restaurant" value="4"><label for="rest4">&#9733;</label>
         <input type="radio" id="rest3" name="restaurant" value="3"><label for="rest3">&#9733;</label>
         <input type="radio" id="rest2" name="restaurant" value="2"><label for="rest2">&#9733;</label>
         <input type="radio" id="rest1" name="restaurant" value="1"><label for="rest1">&#9733;</label>
       </div>
 
-      <!-- Food Taste Rating -->
       <label>Food Taste:</label>
       <div class="stars">
-        <input type="radio" id="food5" name="food" value="5"><label for="food5">&#9733;</label>
+        <input type="radio" id="food5" name="food" value="5" required><label for="food5">&#9733;</label>
         <input type="radio" id="food4" name="food" value="4"><label for="food4">&#9733;</label>
         <input type="radio" id="food3" name="food" value="3"><label for="food3">&#9733;</label>
         <input type="radio" id="food2" name="food" value="2"><label for="food2">&#9733;</label>
         <input type="radio" id="food1" name="food" value="1"><label for="food1">&#9733;</label>
       </div>
 
-      <!-- Comments -->
       <label for="comments">Additional Comments:</label>
       <textarea id="comments" name="comments" rows="4" placeholder="Optional"></textarea>
 
-      <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+      <button type="submit">Submit Feedback</button>
     </form>
   </div>
-
-  <script>
-    function getStarValue(name) {
-      return document.querySelector(`input[name="${name}"]:checked`)?.value || "Not rated";
-    }
-
-    function submitFeedback() {
-      const feedback = {
-        name: document.getElementById("name").value.trim() || "Anonymous",
-        experience: getStarValue("experience"),
-        staff: getStarValue("staff"),
-        cleanliness: getStarValue("cleanliness"),
-        restaurant: getStarValue("restaurant"),
-        food: getStarValue("food"),
-        comments: document.getElementById("comments").value.trim() || "No comments"
-      };
-
-      console.log("Feedback Submitted:", feedback);
-      alert("Thank you for your feedback!");
-    }
-  </script>
 </body>
 </html>
